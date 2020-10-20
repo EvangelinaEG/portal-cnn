@@ -1,0 +1,38 @@
+header ul{
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	justify-content: center;	
+}
+
+header ul li{
+	padding: 10px 15px;
+	border-right: 2px solid #ddd;
+}
+
+header ul li a{
+	text-decoration: none;
+	font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+header ul li a span{
+	color: red;
+}
+
+header ul li a:hover{
+	color: red;
+}
+
+@media screen and (max-width: 768px) {
+	header{
+		display: none!important;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header{
+		display: none!important;
+	}
+}

@@ -1,0 +1,183 @@
+body{
+	font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
+}
+
+img, video{
+	width: 100%;
+}
+
+main .row{
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+main .row .column.first{
+	flex-grow: 2;
+}
+
+main .row .column{
+	flex-grow: 1;
+}
+
+main .row .column, main .row .column-first{
+	align-self: start;
+}
+
+main .row .column-first .item, main .row .column .item{
+	align-self: start;	
+	padding: 5px;
+	border-bottom: 2px solid #ddd;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	font-weight: 300;
+	line-height: 1.33333;
+	font-size: 14px;
+}
+
+main .row .column .item-2, main .row .column .item-3{
+	padding: 5px;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	font-weight: 300;
+	line-height: 1.33333;
+	font-size: 14px;
+}
+
+main .row .column-first .item a{
+	text-decoration: none;
+	color: #000;
+}
+
+main .row .column-first .item a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+main .row .column-first .item a h1{
+	text-align: center;
+	font-weight: bold;
+	font-family: CNN,Helvetica Neue,Verdana,Helvetica,Arial,Utkal,sans-serif;
+}
+
+main .row .column-first .item figure figcaption{
+	padding: 5px;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	line-height: 1.6;
+}
+
+main .row .column .item a h2, main .row .column .item-2 a h2, main .row .column .item-3 a h2{
+	padding: 5px;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	line-height: 1.2;
+	font-weight: 650;
+	font-size: 16px;
+}
+
+main .row .column a{
+	text-decoration: none;
+}
+
+main .row .column  a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+main .row .column  a:active{
+	color: #ddd;
+}
+
+main .row .column .item hgroup a h2{
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+main .row .column .item-2 hgroup a h2{
+	display: none;
+	padding: 10px;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	line-height: 1.2;
+	font-weight: 700;
+	background-color: #ccc;
+	font-size: 16px;
+}
+
+main .row .column .item-2 hgroup a h3{
+	padding: 10px;
+	font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+	line-height: 1.2;
+	font-weight: 700;
+	background-color: #ccc;
+	font-size: 16px;
+}
+
+main .row .column .item-3 .img-footer{
+	padding: 10px 20px;
+	margin:auto;
+	margin-bottom: 180px;
+	background-color: #eee;
+}
+
+main .row .column .item-3 .img-footer a{
+	text-align: center;
+	font-weight: 900;
+	text-decoration: none;
+	color: #000;
+}
+
+main .row .column .item-3 .img-footer a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+
+
+@media screen and (max-width: 768px) {
+	main .row{
+		flex-wrap: wrap;
+	}
+
+	img, video{
+		width: 100%;
+	}
+
+	main .row .column{
+		flex-shrink: 2;
+		align-self: start;
+		flex-grow: 1;
+		width: 50%;
+	}
+
+	main .row .column-first{
+		flex-grow: 4;
+	}
+
+	
+}
+
+@media screen and (max-width: 480px) {
+	main .row{
+		flex-direction: column;
+	}
+
+	img{
+		width: 100%;
+	}
+
+	main .row .column{
+		flex-shrink: 2;
+		align-self: start;
+		flex-grow: 1;
+		width: 100%;
+	}
+
+	main .row .column-first{
+		flex-grow: 1;
+	}
+	
+	main .row .column .item-2 img, main .row .column .item-3 video, main .row .column .item-3 img{
+		height: auto!important;
+		width: 100%;
+	}
+}	

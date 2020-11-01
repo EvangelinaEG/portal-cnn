@@ -39,6 +39,25 @@ window.addEventListener('load', function(){
             
     }, true);
 
-  
+    email.addEventListener("blur", function( event ) {
+
+        const email = event.target.value;
+        const patternEmail = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+    
+        if(!patternEmail.test(email)){
+            
+            document.getElementById('email').nextElementSibling.classList.remove('hidden');
+            document.getElementById('email').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    email.addEventListener("focus", function( event ) {
+        
+            document.getElementById('email').nextElementSibling.classList.remove('danger');
+            document.getElementById('email').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
     
 });

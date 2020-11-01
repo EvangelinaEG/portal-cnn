@@ -71,16 +71,20 @@ form{
     display: block;
     color: green;
 }
+
 .danger{
     display: block;
     color: red;
 }
+
 .danger-border{
     border: 1px solid red;
 }
+
 .success-border{
     border: 1px solid green;
 }
+
 .hidden{
     display: none;
 }

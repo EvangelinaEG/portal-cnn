@@ -34,7 +34,7 @@ footer  p{
 	footer .footer{
 		flex-direction: row;
 		flex-wrap: wrap;
-		bottom: 0;
+		
 	}
 }
 

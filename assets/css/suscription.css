@@ -98,7 +98,6 @@ form{
     justify-content: center;
     -moz-box-align: center;
     align-items: center;
-    cursor: pointer;
     outline: currentcolor none medium;
     text-align: center;
     text-decoration: none;
@@ -117,6 +116,7 @@ form{
   
 }
 
+
 @media screen and (max-width: 480px) {
 
     form{
@@ -132,6 +132,10 @@ form{
         margin-top: 10px;
         line-height: 30px;
         max-width: 300px;
+        text-align: center;
+    }
+    .form .susButton {
+        width: 95%;
     }
 
 }

@@ -20,6 +20,10 @@ nav .topnav a {
   font-size: 17px;
 }
 
+nav .topnav a.suscribe{
+  display: none;
+}
+
 nav .topnav a:hover {
  color: #fff;
 }
@@ -48,6 +52,7 @@ nav .right{
     float: right;
   }
 
+
 }
 
 
@@ -66,7 +71,12 @@ nav .right{
     nav .topnav.responsive .right .iconr{
       display: none;
     }
-
+    nav .topnav.responsive .right a.user{
+      position: absolute;
+      right: 30px;
+      top: 0;
+    }
+   
     nav .topnav.responsive a {
       display: block;
       padding: 5px auto;
@@ -81,6 +91,7 @@ nav .right{
       padding:10px;
       text-align: center;
     }
+    
 }
 
 
@@ -97,6 +108,10 @@ nav .right{
 
   nav .topnav.responsive .right .iconr{
     display: none;
+  }
+
+  nav .topnav.responsive .right .user{
+    display: block;
   }
   nav .topnav.responsive a {
     display: block;

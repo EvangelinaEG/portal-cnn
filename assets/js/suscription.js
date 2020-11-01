@@ -369,7 +369,7 @@ window.addEventListener('load', function(){
         }else{
 
             document.getElementById('dni').classList.add('success-border');
-            return false;
+            
         }   
     }
 
@@ -468,7 +468,7 @@ window.addEventListener('load', function(){
             alert("Your data is:\n"+datos);
         }
         
-    }, false);
+    });
 
    
 });

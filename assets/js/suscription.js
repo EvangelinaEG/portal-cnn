@@ -1,6 +1,8 @@
 
 window.addEventListener('load', function(){
     
+    document.getElementById('myform').reset();
+
     const name = document.getElementById('name');
     const  email = document.getElementById('email');
     const password = document.getElementById('password');
@@ -139,6 +141,27 @@ window.addEventListener('load', function(){
         
             document.getElementById('phone').nextElementSibling.classList.remove('danger');
             document.getElementById('phone').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
+
+    address.addEventListener("blur", function( event ) {
+
+        const address = event.target.value.trim();
+        const pattern = new RegExp('^[a-zA-Z0-9\\s]+$');
+    
+        if(address.length < 5 || !pattern.test(address) || (address.indexOf(" ") == -1)){
+            
+            document.getElementById('address').nextElementSibling.classList.remove('hidden');
+            document.getElementById('address').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    address.addEventListener("focus", function( event ) {
+        
+            document.getElementById('address').nextElementSibling.classList.remove('danger');
+            document.getElementById('address').nextElementSibling.classList.add('hidden');
             return false;
             
     }, true);

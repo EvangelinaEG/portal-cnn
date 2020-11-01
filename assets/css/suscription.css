@@ -100,7 +100,7 @@ form{
     font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
     font-weight: 700;
     font-size: 16px;
-    flex-direction: row-reverse;
+    flex-direction:column;
     background-color: rgb(12, 12, 12);
     border: medium none;
     color: rgb(254, 254, 254);
@@ -108,6 +108,7 @@ form{
     min-height: 48px;
     width: 100%;
     margin: 8px;
+  
 }
 
 @media screen and (max-width: 480px) {

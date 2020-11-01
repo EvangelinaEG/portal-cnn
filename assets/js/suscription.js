@@ -30,9 +30,8 @@ window.addEventListener('load', function(){
     }, true);
 
     function validaName(name){
-        console.log(name.value);
+       
         const lname = name.value.trim();
-        
         const pattern = new RegExp('^[a-zA-Z\\s]+$');
     
         if(lname.length < 6 || !pattern.test(lname) || (lname.indexOf(" ") == -1)){
@@ -45,7 +44,9 @@ window.addEventListener('load', function(){
             return true;
         } 
         else{
+
             document.getElementById('name').classList.add('success-border');
+
         }  
     } 
         
@@ -76,8 +77,12 @@ window.addEventListener('load', function(){
             document.getElementById('email').nextElementSibling.textContent = "Invalid email";
             
             return true;
+
         }else{
+
             document.getElementById('email').classList.add('succes-border');
+            return false;
+
         }    
     }
     
@@ -108,8 +113,12 @@ window.addEventListener('load', function(){
             document.getElementById('password').nextElementSibling.textContent = "Must have at least 8 characters with letters and numbers";
             
             return true;
+
         }else{
+
             document.getElementById('password').classList.add('success-border');
+            return false;
+
         }    
     }
     
@@ -137,8 +146,12 @@ window.addEventListener('load', function(){
             document.getElementById('repassword').nextElementSibling.textContent = "The passwords don't match";
             
             return true;
+
         }else{
+
             document.getElementById('repassword').classList.add('success-border');
+            return false;
+
         }    
     }   
 
@@ -171,8 +184,12 @@ window.addEventListener('load', function(){
             document.getElementById('age').nextElementSibling.textContent = "You must be 18 years of age or older";
             
             return true;
+
         }else{
+
             document.getElementById('age').classList.add('success-border');
+            return false;
+
         }    
     }
 
@@ -207,7 +224,10 @@ window.addEventListener('load', function(){
             return true;
             
         }else{
+
             document.getElementById('phone').classList.add('success-border');
+            return false;
+
         }    
     }
 
@@ -239,8 +259,12 @@ window.addEventListener('load', function(){
             document.getElementById('address').nextElementSibling.textContent = "Must have at least 5 characters with letters and numbers and space in the middle";
             
             return true;
+
         }else{
+
             document.getElementById('address').classList.add('success-border');
+            return false;
+
         }    
     }
 
@@ -260,6 +284,7 @@ window.addEventListener('load', function(){
     function validaCity(city){
 
         const lcity = city.value.trim();
+
         if(lcity.length < 3){
             
             document.getElementById('city').nextElementSibling.classList.remove('hidden');
@@ -268,8 +293,12 @@ window.addEventListener('load', function(){
             document.getElementById('city').nextElementSibling.textContent = "Must have at least 3 characters";
             
             return true;
+
         }else{
+
             document.getElementById('city').classList.add('success-border');
+            return false;
+
         }    
     }
 
@@ -290,6 +319,7 @@ window.addEventListener('load', function(){
     function validaZip(zip){
 
         const lzip = zip.value.trim();
+
         if(lzip.length < 3){
             
             document.getElementById('zip').nextElementSibling.classList.remove('hidden');
@@ -298,8 +328,12 @@ window.addEventListener('load', function(){
             document.getElementById('zip').nextElementSibling.textContent = "Must have at least 3 characters";
             
             return true;
+
         }else{
+
             document.getElementById('zip').classList.add('success-border');
+            return false;
+
         }    
     }
 
@@ -331,9 +365,11 @@ window.addEventListener('load', function(){
             document.getElementById('dni').nextElementSibling.textContent = "Must have 7 or 8 digits";
             
             return true;
-        }
-        else{
+
+        }else{
+
             document.getElementById('dni').classList.add('success-border');
+            return false;
         }   
     }
 
@@ -347,6 +383,7 @@ window.addEventListener('load', function(){
     document.getElementById("myform").addEventListener('submit', function(){
         
         const valName = validaName(name);
+
         if(valName){
             errors += "The name must have 6 letters with at least space in the middle.\n";
         }else{
@@ -354,53 +391,69 @@ window.addEventListener('load', function(){
         }
      
         const valEmail = validaEmail(email);
+
         if(valEmail){
             errors += "Invalid email.\n";
         }else{
             datos += "Your email is: "+email.value+"\n";
         }
+
         const valPassword = validaPassword(password);
+
         if(valPassword){
             errors += "the password must have at least 8 characters with letters and numbers.\n";
         }else{
             datos += "Your password is: "+password.value+"\n";
         }
+
         const valRepassword = validaRepassword(repassword);
+
         if(valRepassword){
             errors += "he passwords don't match.\n";
         }
 
         const valAge = validaAge(age);
+
         if(valAge){
             errors += "You must be 18 years of age or older.\n";
         }else{
             datos += "Your age is: "+age.value+"\n";
         }
+
         const valPhone = validaPhone(phone);
+
         if(valPhone){
             errors += "The phone must have 7 digits or more, no dots or dashes.\n";
         }else{
             datos += phone.value;
         }
+
         const valAddress = validaAddress(address);
+
         if(valAddress){
             errors += "The address must have at least 5 characters with letters and numbers and space in the middle\n";
         }else{
             datos += "Your address: "+address.value+"\n";
         }
+
         const valCity = validaCity(city);
+
         if(valCity){
             errors += "The city must have at least 3 characters.\n";
         }else{
             datos += "Your city is: "+city.value+"\n";
         }
+
         const valZip = validaZip(zip);
+
         if(valZip){
             errors += "The zip must have at least 3 characters.\n";
         }else{
             datos += "Your zip code is: "+zip.value+"\n";
         }
+
         const valDni = validaDni(dni);
+
         if(valDni){
             errors += "The dni must have 7 or 8 digits.\n";
         }else{

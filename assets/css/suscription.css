@@ -118,12 +118,20 @@ form{
 }
 
 @media screen and (max-width: 480px) {
+
     form{
         flex-direction: column;
-        width: 100%;
+        width: 90%;
     }
+
     .form form .group{
         width: 100%;
+    }
+
+    main p{
+        margin-top: 10px;
+        line-height: 30px;
+        max-width: 300px;
     }
 
 }

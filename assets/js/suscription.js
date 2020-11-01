@@ -165,4 +165,24 @@ window.addEventListener('load', function(){
             return false;
             
     }, true);
+
+    city.addEventListener("blur", function( event ) {
+
+        const city = event.target.value.trim();
+    
+        if(city.length < 3){
+            
+            document.getElementById('city').nextElementSibling.classList.remove('hidden');
+            document.getElementById('city').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    city.addEventListener("focus", function( event ) {
+        
+            document.getElementById('city').nextElementSibling.classList.remove('danger');
+            document.getElementById('city').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
 });

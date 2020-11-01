@@ -40,6 +40,11 @@ main p{
     line-height: 60px;
 }
 
+main p b{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 form{
     display: flex;
     flex-wrap: wrap;
@@ -62,20 +67,23 @@ form{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
 
-.form input .success{
-    border: 1px solid green;
+.success{
+    display: block;
+    color: green;
+}
+.danger{
+    display: block;
+    color: red;
+}
+.hidden{
+    display: none;
 }
 
 .form div span{
-    display: none;
     padding: 0 10px;
     color: red;
     text-align: left;
     font-size: 10px;
-}
-
-.form input .danger{
-    border: 1px solid red;
 }
 
 .form .susButton {

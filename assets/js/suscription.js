@@ -101,4 +101,24 @@ window.addEventListener('load', function(){
             
     }, true);
     
+    age.addEventListener("blur", function( event ) {
+
+        const age = event.target.value;
+        const patternAge = new RegExp('^[0-9]+$');
+        if(age < 18 || !patternAge.test(age))
+        {
+            
+            document.getElementById('age').nextElementSibling.classList.remove('hidden');
+            document.getElementById('age').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    age.addEventListener("focus", function( event ) {
+        
+            document.getElementById('age').nextElementSibling.classList.remove('danger');
+            document.getElementById('age').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
 });

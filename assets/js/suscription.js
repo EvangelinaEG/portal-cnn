@@ -15,7 +15,8 @@ window.addEventListener('load', function(){
     const dni = document.getElementById('dni');
     const sus = document.getElementById('subscriber');
 
-    const errors = ["<ul>"];
+    let errors = "";
+    let datos = "";
 
     name.addEventListener('keypress', e =>
     {
@@ -24,27 +25,32 @@ window.addEventListener('load', function(){
 
     name.addEventListener("blur", function( event ) {
 
-        const name = event.target.value.trim();
-        validaName(name);
+        validaName(event.target);
 
     }, true);
 
     function validaName(name){
-
+        console.log(name.value);
+        const lname = name.value.trim();
+        
         const pattern = new RegExp('^[a-zA-Z\\s]+$');
     
-        if(name.length < 6 || !pattern.test(name) || (name.indexOf(" ") == -1)){
+        if(lname.length < 6 || !pattern.test(lname) || (lname.indexOf(" ") == -1)){
             
             document.getElementById('name').nextElementSibling.classList.remove('hidden');
             document.getElementById('name').nextElementSibling.classList.add('danger');
+            document.getElementById('name').classList.add('danger-border');
             document.getElementById('name').nextElementSibling.textContent = "Must have 6 letters with at least space in the middle";
 
             return true;
-        }   
+        } 
+        else{
+            document.getElementById('name').classList.add('success-border');
+        }  
     } 
         
     name.addEventListener("focus", function( event ) {
-        
+
         document.getElementById('name').nextElementSibling.classList.remove('danger');
         document.getElementById('name').nextElementSibling.classList.add('hidden');
     
@@ -52,23 +58,26 @@ window.addEventListener('load', function(){
 
     
     email.addEventListener("blur", function( event ) {
-
-        const email = event.target.value;
-        validaEmail(email);
+        
+        validaEmail(event.target);
 
     }, true);
 
     function validaEmail(email){
 
+        const lemail = email.value;
         const patternEmail = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
     
-        if(!patternEmail.test(email)){
+        if(!patternEmail.test(lemail)){
             
             document.getElementById('email').nextElementSibling.classList.remove('hidden');
             document.getElementById('email').nextElementSibling.classList.add('danger');
+            document.getElementById('email').classList.add('danger-border');
             document.getElementById('email').nextElementSibling.textContent = "Invalid email";
             
             return true;
+        }else{
+            document.getElementById('email').classList.add('succes-border');
         }    
     }
     
@@ -82,22 +91,25 @@ window.addEventListener('load', function(){
         
     password.addEventListener("blur", function( event ) {
 
-        const password = event.target.value;
-        validaPassword(password);
+        validaPassword(event.target);
 
     }, true);
 
     function validaPassword(password){
 
+        const lpassword = password.value;
         const patternPass = new RegExp('^[A-Za-z]+[0-9]+$');
     
-        if(password.length < 8 || !patternPass.test(password)){
+        if(lpassword.length < 8 || !patternPass.test(lpassword)){
             
             document.getElementById('password').nextElementSibling.classList.remove('hidden');
             document.getElementById('password').nextElementSibling.classList.add('danger');
+            document.getElementById('password').classList.add('danger-border');
             document.getElementById('password').nextElementSibling.textContent = "Must have at least 8 characters with letters and numbers";
             
             return true;
+        }else{
+            document.getElementById('password').classList.add('success-border');
         }    
     }
     
@@ -110,20 +122,23 @@ window.addEventListener('load', function(){
 
     repassword.addEventListener("blur", function( event ) {
 
-        const repassword = event.target.value;
-        validaRepassword(repassword);
+        validaRepassword(event.target);
         
     }, true);
 
     function validaRepassword(repassword){
 
-        if(!(repassword === password.value)){
+        const lrepassword = repassword.value;
+        if(!(lrepassword === password.value)){
             
             document.getElementById('repassword').nextElementSibling.classList.remove('hidden');
             document.getElementById('repassword').nextElementSibling.classList.add('danger');
+            document.getElementById('repassword').classList.add('danger-border');
             document.getElementById('repassword').nextElementSibling.textContent = "The passwords don't match";
             
             return true;
+        }else{
+            document.getElementById('repassword').classList.add('success-border');
         }    
     }   
 
@@ -138,23 +153,26 @@ window.addEventListener('load', function(){
     
     age.addEventListener("blur", function( event ) {
 
-        const age = event.target.value;
-        validaAge(age);
+        validaAge(event.target);
 
     }, true);
 
     function validaAge(age){
 
+        const lage = age.value;
         const patternAge = new RegExp('^[0-9]+$');
 
-        if(age < 18 || !patternAge.test(age))
+        if(lage < 18 || !patternAge.test(lage))
         {
             
             document.getElementById('age').nextElementSibling.classList.remove('hidden');
             document.getElementById('age').nextElementSibling.classList.add('danger');
+            document.getElementById('age').classList.add('danger-border');
             document.getElementById('age').nextElementSibling.textContent = "You must be 18 years of age or older";
             
             return true;
+        }else{
+            document.getElementById('age').classList.add('success-border');
         }    
     }
 
@@ -169,24 +187,27 @@ window.addEventListener('load', function(){
 
     phone.addEventListener("blur", function( event ) {
 
-        const phone = event.target.value;
-        validaPhone(phone);
+        validaPhone(event.target);
 
     }, true);
 
     function validaPhone(phone){
 
+        const lphone = phone.value;
         const patternPhone = new RegExp('^[+0-9]+[^-_()\\s]$');
 
-        if(phone.length < 7 || !patternPhone.test(phone))
+        if(lphone.length < 7 || !patternPhone.test(lphone))
         {
             
             document.getElementById('phone').nextElementSibling.classList.remove('hidden');
             document.getElementById('phone').nextElementSibling.classList.add('danger');
+            document.getElementById('phone').classList.add('danger-border');
             document.getElementById('phone').nextElementSibling.textContent = "Must have 7 digits or more, no dots or dashes";
            
             return true;
             
+        }else{
+            document.getElementById('phone').classList.add('success-border');
         }    
     }
 
@@ -201,22 +222,25 @@ window.addEventListener('load', function(){
 
     address.addEventListener("blur", function( event ) {
 
-        const address = event.target.value.trim();
-        validaAddress(address);
+        validaAddress(event.target);
 
     }, true);
 
     function validaAddress(address){
 
+        const laddress = address.value.trim();
         const patternAddress = new RegExp('^[a-zA-Z0-9\\s]+$');
     
-        if(address.length < 5 || !patternAddress.test(address) || (address.indexOf(" ") == -1)){
+        if(laddress.length < 5 || !patternAddress.test(laddress) || (laddress.indexOf(" ") == -1)){
             
             document.getElementById('address').nextElementSibling.classList.remove('hidden');
             document.getElementById('address').nextElementSibling.classList.add('danger');
+            document.getElementById('address').classList.add('danger-border');
             document.getElementById('address').nextElementSibling.textContent = "Must have at least 5 characters with letters and numbers and space in the middle";
             
             return true;
+        }else{
+            document.getElementById('address').classList.add('success-border');
         }    
     }
 
@@ -229,20 +253,23 @@ window.addEventListener('load', function(){
     
     city.addEventListener("blur", function( event ) {
 
-        const city = event.target.value.trim();
-        validaCity(city);
+        validaCity(event.target);
         
     }, true);
 
     function validaCity(city){
 
-        if(city.length < 3){
+        const lcity = city.value.trim();
+        if(lcity.length < 3){
             
             document.getElementById('city').nextElementSibling.classList.remove('hidden');
             document.getElementById('city').nextElementSibling.classList.add('danger');
+            document.getElementById('city').classList.add('danger-border');
             document.getElementById('city').nextElementSibling.textContent = "Must have at least 3 characters";
             
             return true;
+        }else{
+            document.getElementById('city').classList.add('success-border');
         }    
     }
 
@@ -256,20 +283,23 @@ window.addEventListener('load', function(){
 
     zip.addEventListener("blur", function( event ) {
 
-        const zip = event.target.value.trim();
-        validaZip(zip);
+        validaZip(event.target);
         
     }, true);
 
     function validaZip(zip){
 
-        if(zip.length < 3){
+        const lzip = zip.value.trim();
+        if(lzip.length < 3){
             
             document.getElementById('zip').nextElementSibling.classList.remove('hidden');
             document.getElementById('zip').nextElementSibling.classList.add('danger');
+            document.getElementById('zip').classList.add('danger-border');
             document.getElementById('zip').nextElementSibling.textContent = "Must have at least 3 characters";
             
             return true;
+        }else{
+            document.getElementById('zip').classList.add('success-border');
         }    
     }
 
@@ -284,22 +314,26 @@ window.addEventListener('load', function(){
 
     dni.addEventListener("blur", function( event ) {
 
-        const dni = event.target.value.trim();
-         validaDni(dni);
+        validaDni(event.target);
 
     }, true);
 
     function validaDni(dni){
 
+        const ldni = dni.value.trim();
         const patternDni = new RegExp('^[0-9]+$');
 
-        if(dni.length < 7 || dni.length > 8 || !patternDni.test(dni)){
+        if(ldni.length < 7 || ldni.length > 8 || !patternDni.test(ldni)){
             
             document.getElementById('dni').nextElementSibling.classList.remove('hidden');
             document.getElementById('dni').nextElementSibling.classList.add('danger');
+            document.getElementById('dni').classList.add('danger-border');
             document.getElementById('dni').nextElementSibling.textContent = "Must have 7 or 8 digits";
             
             return true;
+        }
+        else{
+            document.getElementById('dni').classList.add('success-border');
         }   
     }
 
@@ -311,49 +345,76 @@ window.addEventListener('load', function(){
     }, true);
     
     document.getElementById("myform").addEventListener('submit', function(){
+        
         const valName = validaName(name);
         if(valName){
-            errors.push("<li>The name must have 6 letters with at least space in the middle</li>");
+            errors += "The name must have 6 letters with at least space in the middle.\n";
+        }else{
+            datos += "Your name is: "+name.value+"\n";
         }
-        const valEmail = validaName(email);
+     
+        const valEmail = validaEmail(email);
         if(valEmail){
-            errors.push("<li>Invalid email</li>");
+            errors += "Invalid email.\n";
+        }else{
+            datos += "Your email is: "+email.value+"\n";
         }
-        const valPassword = validaName(password);
+        const valPassword = validaPassword(password);
         if(valPassword){
-            errors.push("<li>the password must have at least 8 characters with letters and numbers</li>");
+            errors += "the password must have at least 8 characters with letters and numbers.\n";
+        }else{
+            datos += "Your password is: "+password.value+"\n";
         }
-        const valRepassword = validaName(repassword);
+        const valRepassword = validaRepassword(repassword);
         if(valRepassword){
-            errors.push("<li>The passwords don't match</li>");
+            errors += "he passwords don't match.\n";
         }
-        const valAge = validaName(age);
-        if(valAge){
-            errors.push("<li>You must be 18 years of age or older</li>");
-        }
-        const valPhone = validaName(phone);
-        if(valPhone){
-            errors.push("<li>The phone must have 7 digits or more, no dots or dashes</li>");
-        }
-        const valAddress = validaName(address);
-        if(valAddress){
-            errors.push("<li>The address must have at least 5 characters with letters and numbers and space in the middle</li>");
-        }
-        const valCity = validaName(city);
-        if(valCity){
-            errors.push("<li>The city must have at least 3 characters</li>");
-        }
-        const valZip = validaName(zip);
-        if(valZip){
-            errors.push("<li>The zip must have at least 3 characters</li>");
-        }
-        const valDni = validaName(dni);
-        if(valDni){
-            errors.push("<li>The dni must have 7 or 8 digits</li>");
-        }
-        errors.push("</ul>");
 
-        alert("You have the next errors:<br>"+errors);
+        const valAge = validaAge(age);
+        if(valAge){
+            errors += "You must be 18 years of age or older.\n";
+        }else{
+            datos += "Your age is: "+age.value+"\n";
+        }
+        const valPhone = validaPhone(phone);
+        if(valPhone){
+            errors += "The phone must have 7 digits or more, no dots or dashes.\n";
+        }else{
+            datos += phone.value;
+        }
+        const valAddress = validaAddress(address);
+        if(valAddress){
+            errors += "The address must have at least 5 characters with letters and numbers and space in the middle\n";
+        }else{
+            datos += "Your address: "+address.value+"\n";
+        }
+        const valCity = validaCity(city);
+        if(valCity){
+            errors += "The city must have at least 3 characters.\n";
+        }else{
+            datos += "Your city is: "+city.value+"\n";
+        }
+        const valZip = validaZip(zip);
+        if(valZip){
+            errors += "The zip must have at least 3 characters.\n";
+        }else{
+            datos += "Your zip code is: "+zip.value+"\n";
+        }
+        const valDni = validaDni(dni);
+        if(valDni){
+            errors += "The dni must have 7 or 8 digits.\n";
+        }else{
+            datos += "Your dni is: "+dni.value+"\n";
+        }
+        
+        if(datos != "" && errors != ""){
+            alert("Your data is:\n"+datos+"\nYou have the next errors:\n"+errors);
+        }else if(errors!=""){
+            alert("You have the next errors:\n"+errors);
+        }else if(datos != ""){
+            alert("Your data is:\n"+datos);
+        }
+        
     }, false);
 
    

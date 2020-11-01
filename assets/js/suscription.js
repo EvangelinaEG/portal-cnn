@@ -20,7 +20,7 @@ window.addEventListener('load', function(){
 
     name.addEventListener("blur", function( event ) {
 
-        const name = event.target.value;
+        const name = event.target.value.trim();
         const pattern = new RegExp('^[a-zA-Z\\s]+$');
     
         if(name.length < 6 || !pattern.test(name) || (name.indexOf(" ") == -1)){
@@ -59,5 +59,28 @@ window.addEventListener('load', function(){
             return false;
             
     }, true);
+
+    password.addEventListener("blur", function( event ) {
+
+        const password = event.target.value;
+        const patternPass = new RegExp('^[A-Za-z]+[0-9]+$');
+    
+        if(password.length < 8 || !patternPass.test(password)){
+            
+            document.getElementById('password').nextElementSibling.classList.remove('hidden');
+            document.getElementById('password').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    password.addEventListener("focus", function( event ) {
+        
+            document.getElementById('password').nextElementSibling.classList.remove('danger');
+            document.getElementById('password').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
+
+    
     
 });

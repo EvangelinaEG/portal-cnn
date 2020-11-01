@@ -81,6 +81,24 @@ window.addEventListener('load', function(){
             
     }, true);
 
-    
+    repassword.addEventListener("blur", function( event ) {
+
+        const repassword = event.target.value;
+        
+        if(!(repassword === password.value)){
+            
+            document.getElementById('repassword').nextElementSibling.classList.remove('hidden');
+            document.getElementById('repassword').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    repassword.addEventListener("focus", function( event ) {
+        
+            document.getElementById('repassword').nextElementSibling.classList.remove('danger');
+            document.getElementById('repassword').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
     
 });

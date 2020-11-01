@@ -121,4 +121,25 @@ window.addEventListener('load', function(){
             return false;
             
     }, true);
+
+    phone.addEventListener("blur", function( event ) {
+
+        const phone = event.target.value;
+        const patternPhone = new RegExp('^[+0-9]+[^-_()\\s]$');
+        if(phone.length < 7 || !patternPhone.test(phone))
+        {
+            
+            document.getElementById('phone').nextElementSibling.classList.remove('hidden');
+            document.getElementById('phone').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    phone.addEventListener("focus", function( event ) {
+        
+            document.getElementById('phone').nextElementSibling.classList.remove('danger');
+            document.getElementById('phone').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
 });

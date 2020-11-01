@@ -185,4 +185,24 @@ window.addEventListener('load', function(){
             return false;
             
     }, true);
+
+    zip.addEventListener("blur", function( event ) {
+
+        const zip = event.target.value.trim();
+    
+        if(zip.length < 3){
+            
+            document.getElementById('zip').nextElementSibling.classList.remove('hidden');
+            document.getElementById('zip').nextElementSibling.classList.add('danger');
+            return false;
+        }    
+    }, true);
+
+    zip.addEventListener("focus", function( event ) {
+        
+            document.getElementById('zip').nextElementSibling.classList.remove('danger');
+            document.getElementById('zip').nextElementSibling.classList.add('hidden');
+            return false;
+            
+    }, true);
 });

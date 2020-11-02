@@ -1,22 +1,18 @@
+.line {
+    position: relative;
+    margin: 12px 0px;
+    text-align: center;
+}
+
 .line::before {
+    position: absolute;
+    z-index: -1;
     height: 4px;
     width: 100%;
     left: 0px;
     background: rgb(204, 0, 0) none repeat scroll 0% 0%;
-    position: absolute;
     top: calc(50% - 4px);
     content: "";
-    z-index: -1;
-}
-
-.line {
-    margin: 24px 0px;
-}
-
-.line {
-    margin: 12px 0px;
-    position: relative;
-    text-align: center;
 }
 
 main{
@@ -55,15 +51,15 @@ form{
 }
 
 .form form .group{
-    width: 50%;
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .form input{
-    background-color:#eee;
     padding: 5px;
     margin: 10px;
+    background-color:#eee;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
 
@@ -98,6 +94,7 @@ form{
 
 .form .susButton {
     display: flex;
+    flex-direction:column;
     -moz-box-pack: center;
     justify-content: center;
     -moz-box-align: center;
@@ -109,7 +106,6 @@ form{
     font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
     font-weight: 700;
     font-size: 16px;
-    flex-direction:column;
     background-color: rgb(12, 12, 12);
     border: medium none;
     color: rgb(254, 254, 254);
@@ -117,7 +113,6 @@ form{
     min-height: 48px;
     width: 100%;
     margin: 8px;
-  
 }
 
 

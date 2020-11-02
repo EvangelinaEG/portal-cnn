@@ -46,6 +46,7 @@ window.addEventListener('load', function(){
         else{
 
             document.getElementById('name').classList.add('success-border');
+            return false;
 
         }  
     } 
@@ -369,7 +370,7 @@ window.addEventListener('load', function(){
         }else{
 
             document.getElementById('dni').classList.add('success-border');
-            
+            return false;
         }   
     }
 

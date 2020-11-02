@@ -135,9 +135,9 @@ form{
     main p{
         margin-top: 10px;
         line-height: 30px;
-        max-width: 300px;
-        text-align: center;
+        justify-content: center;
     }
+
     .form .susButton {
         width: 95%;
     }
